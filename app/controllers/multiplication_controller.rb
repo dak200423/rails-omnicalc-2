@@ -1,14 +1,13 @@
-class MultiplicationController > application_controller
-  def show_multiplication_form
-    render({ :template => "multiply_template/multiplication_form" })
+class MultiplicationController < ApplicationController
+  def show_mult_form
+    render({ :template => "multiplication_templates/multiplication_form" })
   end
 
   def multiply_these
-    @first_number = params.fetch("first_number").to_f
-    @second_number = params.fetch("second_num").to_f
+    @first_num = params.fetch("first_number_mult").to_f
+    @second_num = params.fetch("second_number_mult").to_f
+    @result_mult = @second_num * @first_num
 
-    @result =  @first_number * @second_number
-
-    render({ :template => "multiply_templates/multiply_results" })
+    render({ :template => "multiplication_templates/multiply_result" })
   end
 end
